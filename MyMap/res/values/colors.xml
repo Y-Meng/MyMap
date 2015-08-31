@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="violet">#A500CC</color>
+    <color name="lightgray">#DDDDDD</color>
+    <color name="bg_titleinfo">#E0EEEE</color>
+    <color name="black">#000000</color>
+    <color name="selected">#FFBB00</color>
+    <color name="blue">#70B9ED</color>
+    <color name="gray">#808080</color>
+    <color name="whitesmoke">#F5F5F5</color>
+    <color name="gainsboro">#DCDCDC</color>
+    <color name="darkblue">#0000AA</color>
+    <color name="lightblue">#99BBFF</color>
+    <color name="greenblue">#CCCCFF</color>
+    <color name="darkgreen">#227700</color>
+    <color name="lightgreen">#33FF33</color>
+    <color name="armygreen">#227700</color>
+    <color name="window_bg">#fff0f3f6</color>
+    <color name="transparent">#00000000</color>
+    <color name="red">#ff0000</color>
+    <color name="theme_blue">#33b5e5</color>
+    <color name="bg_white">#f2f2f2</color>
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="background">#e5e5e5</color>
+    <color name="half_black">#808080</color>
+    <color name="white">#ffffff</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="pink">#e91e63</color>
+    <color name="pink_pressed">#ec407a</color>
+    <color name="blue_semi_transparent">#805677fc</color>
+    <color name="blue_semi_transparent_pressed">#80738ffe</color>
+</resources>

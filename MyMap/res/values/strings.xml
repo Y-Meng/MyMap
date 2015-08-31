@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MyMap</string>
+    <string name="app_name">电力巡检系统</string>
+    <string name="action_settings">设置</string>
+    <string name="action_set_normal">平面图</string>
+    <string name="action_set_satellite">影像图</string>
+    <string name="action_enable_traffic">交通图</string>
+    <string name="title_activity_login">LoginActivity</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="empty">null</string>
+    <string name="title_activity_ags_map">AgsMapActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
 
 </resources>

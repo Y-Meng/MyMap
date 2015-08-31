@@ -5,8 +5,39 @@
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!-- API 14 theme customizations can go here. -->
     </style>
+
+     <style name="AppTheme" parent="AppBaseTheme">  
+<!--         <item name="android:windowContentOverlay">@null</item> -->
+        <item name="android:actionBarStyle" >@style/MyActionBarStyle</item>  
+        <item name="android:actionMenuTextColor">@color/white</item>
+    </style>
+    
+    <!-- ActionBar样式  -->
+    <style name="MyActionBarStyle" parent="android:style/Widget.ActionBar">
+        <item name="android:background">@color/theme_blue</item>
+        <item name="android:titleTextStyle">@style/AcBar_titleStyle</item> 
+    </style>
+        <!-- ActionBar标题样式 -->
+    <style name="AcBar_titleStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    
+     <!-- Tab选项标签的样式 -->  
+<!--     <style name="MyActionBarTabStyle" parent="android:style/Widget.Holo.Light.ActionBar.TabView">   -->
+<!--         <item name="android:background">@drawable/actionbar_tab_bg</item>   -->
+<!--         <item name="android:paddingLeft">24dp</item>   -->
+<!--         <item name="android:paddingRight">24dp</item>   -->
+<!--     </style>   -->
+  
+    <!-- Tab选项标签字体的样式 -->  
+<!--     <style name="MyActionBarTabTextStyle" parent="android:style/Widget.Holo.Light.ActionBar.TabText">           -->
+<!--         <item name="android:textColor">@color/white</item>   -->
+<!--         <item name="android:textSize">20sp</item>      -->
+<!--     </style>  -->
+    
 
 </resources>
