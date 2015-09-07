@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 渚濊禆鍔犱簨浠舵敞鍏?
+ * 注入View并添加事件
  * @author Administrator
  *
  */

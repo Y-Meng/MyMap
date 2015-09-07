@@ -1,5 +1,6 @@
 package com.mcy.myfragment;
 
+import com.mcy.mobile.core.BaseActivity;
 import com.mcy.mymap.R;
 import android.app.Activity;
 import android.app.ActionBar;
@@ -21,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -53,6 +55,7 @@ public class NavigationDrawerFragment extends Fragment {
 
 	private DrawerLayout mDrawerLayout;
 	private LinearLayout mView;
+	private TextView txtUser;
 	private ListView mDrawerListView;
 	private View mFragmentContainerView;
 
@@ -97,7 +100,7 @@ public class NavigationDrawerFragment extends Fragment {
 			Bundle savedInstanceState) {
 		
 		mView = (LinearLayout) inflater.inflate(
-				R.layout.fragment_navigation_drawer, container, false);
+				R.layout.fragment_main_drawer, container, false);
 		
 		mDrawerListView = (ListView) mView.findViewById(R.id.lstMenu);
 		mDrawerListView
@@ -116,7 +119,11 @@ public class NavigationDrawerFragment extends Fragment {
 						getString(R.string.title_section2),
 						getString(R.string.title_section3), }));
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-		return mDrawerListView;
+		
+		txtUser = (TextView)mView.findViewById(R.id.txtUser);
+		txtUser.setText(((BaseActivity)getActivity()).getUser().getUR_NAME());
+		
+		return mView;
 	}
 
 	public boolean isDrawerOpen() {
@@ -142,7 +149,7 @@ public class NavigationDrawerFragment extends Fragment {
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
 				GravityCompat.START);
 		// set up the drawer's list view with items and click listener
-
+		
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setHomeButtonEnabled(true);
@@ -168,8 +175,7 @@ public class NavigationDrawerFragment extends Fragment {
 					return;
 				}
 
-				getActivity().invalidateOptionsMenu(); // calls
-														// onPrepareOptionsMenu()
+				getActivity().invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
 			}
 
 			@Override
@@ -190,8 +196,7 @@ public class NavigationDrawerFragment extends Fragment {
 							.apply();
 				}
 
-				getActivity().invalidateOptionsMenu(); // calls
-														// onPrepareOptionsMenu()
+				getActivity().invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
 			}
 		};
 

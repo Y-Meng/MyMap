@@ -2,23 +2,6 @@ package com.mcy.mobile.core;
 
 
 public class User extends JsonBean{
-
-	//"UR_IDENT":64.0,
-	//"UR_STATE":0.0,
-	//"UR_POWER":18.0,
-	//"UR_ORDER":801101811.0,
-	//"UR_LOGIN":"fc",
-	//"UR_CRYPT":"3277CB8BFA1F261D7E01B0CA190F3F",
-	//"UR_NAME":"方潮",
-	//"UR_NODE":"410801A19",
-	//"UR_ZONE":"信息中心",
-	//"UR_TAKE":null,
-	//"UR_KAPE":null,
-	//"UR_TIME":"\/Date(1386055821000+0800)\/",
-	//"UR_MOVE":"\/Date(4099737600000+0800)\/",
-	//"UR_SUPER":null,
-	//"UR_REMARK":"焦作市局信息中心主任",
-	//"UR_PICTURE":null
 	
 	private String UR_IDENT="";
 	private String UR_STATE="";

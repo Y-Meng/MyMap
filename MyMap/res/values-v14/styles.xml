@@ -11,8 +11,8 @@
 
      <style name="AppTheme" parent="AppBaseTheme">  
 <!--         <item name="android:windowContentOverlay">@null</item> -->
-        <item name="android:actionBarStyle" >@style/MyActionBarStyle</item>  
-        <item name="android:actionMenuTextColor">@color/white</item>
+<!--         <item name="android:actionBarStyle" >@style/MyActionBarStyle</item>   -->
+<!--         <item name="android:actionMenuTextColor">@color/white</item> -->
     </style>
     
     <!-- ActionBar样式  -->

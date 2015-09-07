@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 以来注入声明接口
+ * ע��Viewע��
  * @author Administrator
  *
  */

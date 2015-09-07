@@ -55,9 +55,9 @@ public class BDMapActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mContext = this;
 		// SDK初始化，SDK各功能组件使用之前都需要调用
 		SDKInitializer.initialize(getApplicationContext());
-		mContext = this;
 		setContentView(R.layout.activity_bdmap);
 		mBaiduMapView = (MapView) findViewById(R.id.baiduMapView);
 		// 隐藏百度LOGO

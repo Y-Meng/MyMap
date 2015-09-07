@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtException"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:background="@drawable/bg_grid_item"
+            android:text="缺陷" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray"/>
+        
+        <TextView
+            android:id="@+id/txtMap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:background="@drawable/bg_grid_item"
+            android:text="地图" />
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray"/>
+        
+        <TextView
+            android:id="@+id/txtPatrol"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:background="@drawable/bg_grid_item"
+            android:text="巡视" />
+    </LinearLayout>
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/baiduMapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar" />
+
+    <com.mcy.mobile.view.floatbutton.AddFloatingActionButton
+        android:id="@+id/btnAddRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomBar"
+        android:layout_alignParentRight="true" />
+    
+    <FrameLayout
+        android:id="@+id/lstContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar"/>
+
+</RelativeLayout>

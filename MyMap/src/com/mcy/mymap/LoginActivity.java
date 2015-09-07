@@ -80,7 +80,7 @@ public class LoginActivity extends BaseActivity implements Login{
 	 * 
 	 * @param Clicked View
 	 */
-	protected void btnClick(View v) {
+	public void btnClick(View v) {
 		switch (v.getId()) {
 		case R.id.btnLogin:
 			login();
@@ -94,7 +94,7 @@ public class LoginActivity extends BaseActivity implements Login{
 		Log.d(TAG, "button click");
 	}
 
-	private void login() {
+	protected void login() {
 		if (txtUser.getText().toString().equals("")) {
 			Toast.makeText(getBaseContext(), "用户名不能为空", Toast.LENGTH_SHORT).show();
 		} else {
@@ -127,11 +127,9 @@ public class LoginActivity extends BaseActivity implements Login{
 		@Override
 		protected Object doInBackground(String... params) {
 			//TODO cancel test
-			try {
-				wait(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			
+			
+			
 			return login(params[0], params[1]);
 		}
 
@@ -152,6 +150,9 @@ public class LoginActivity extends BaseActivity implements Login{
 	@Override
 	public void handleLoginResult(Object result) {
 		// TODO handle login result
+		User user = new User();
+		user.setUR_NAME(strUser);
+		mApp.setUser(user);
 		startActivity(new Intent(this,MainActivity.class));
 	}
 }

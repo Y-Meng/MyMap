@@ -3,13 +3,17 @@
     tools:context="com.mcy.mymap.MainActivity" >
 
     <item
-        android:id="@+id/action_example"
-        android:showAsAction="withText|ifRoom"
-        android:title="@string/action_example"/>
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:id="@+id/action_download"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="刷新任务"/>
+    <item
+        android:id="@+id/action_upload"
+        android:showAsAction="never"
+        android:title="上传任务"/>
+    <!-- <item -->
+    <!-- android:id="@+id/action_settings" -->
+    <!-- android:orderInCategory="100" -->
+    <!-- android:showAsAction="never" -->
+    <!-- android:title="@string/action_settings"/> -->
 
 </menu>
