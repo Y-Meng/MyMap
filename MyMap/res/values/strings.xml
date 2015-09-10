@@ -9,13 +9,14 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="empty">null</string>
-    <string name="title_activity_main">电力巡查</string>
-    <string name="title_section1">电力巡查</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_activity_main">电力巡检</string>
+    <string name="title_section1">电力巡检</string>
+    <string name="title_section2">历史记录</string>
+    <string name="title_section3">用户设置</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_record">缺陷登记</string>
 
 </resources>

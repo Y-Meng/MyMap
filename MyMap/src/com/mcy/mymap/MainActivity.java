@@ -2,7 +2,7 @@ package com.mcy.mymap;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.mcy.mobile.core.BaseActivity;
-import com.mcy.myfragment.MainBDFragment;
+import com.mcy.myfragment.MainFragment;
 import com.mcy.myfragment.NavigationDrawerFragment;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -49,7 +49,7 @@ public class MainActivity extends BaseActivity implements
 			fragmentManager
 					.beginTransaction()
 					.replace(R.id.container,
-							MainBDFragment.newInstance()).commit();
+							new MainFragment()).commit();
 		}else{
 
 			fragmentManager
@@ -93,8 +93,7 @@ public class MainActivity extends BaseActivity implements
 			getMenuInflater().inflate(R.menu.main, menu);
 			restoreActionBar();
 		}
-		return true;
-		//return super.onCreateOptionsMenu(menu);
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override

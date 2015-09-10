@@ -12,25 +12,25 @@ import android.util.Log;
 
 public abstract class SoapAction {
 	
+	protected String mMethod;
 	
-	protected String mMethod;//访问方法名称
+	protected SoapObject rpc = null;
 	
-	protected SoapObject rpc = null;//远程调用对象
+	protected SoapSerializationEnvelope envelope = null;
 	
-	protected SoapSerializationEnvelope envelope = null;//服务访问封装
-	
-	protected HttpTransportSE transport = null;//访问转换对象
+	protected HttpTransportSE transport = null;
 	
 	public SoapAction(String method){
+		
 		mMethod = method;
-		// name参数是函数名
+		// remote process call
 		rpc = new SoapObject(SoapServer.getNAME_SPACE(),mMethod);
 		envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		// 注册Envelope
+		// register Envelope
 		(new MarshalBase64()).register(envelope);
-        // 设置是否调用的是dotNet�?发的WebService  
+        // dotNet WebService  
         envelope.dotNet = true;  
-        // envelope.setOutputSoapObject(rpc);等价于envelope.bodyOut = rpc; 
+        // envelope.setOutputSoapObject(rpc); == nvelope.bodyOut = rpc; 
         transport = new HttpTransportSE(SoapServer.getURL());
         transport.debug=true;
 	}
@@ -38,8 +38,8 @@ public abstract class SoapAction {
 	public abstract void setParams();
 	
 	/**
-	 * 调用方法访问
-	 * @return 返回对象
+	 * call soap action
+	 * @return result
 	 * @throws HttpResponseException
 	 * @throws IOException
 	 * @throws XmlPullParserException
@@ -54,20 +54,12 @@ public abstract class SoapAction {
     		transport.call(SoapServer.getNAME_SPACE()+mMethod,envelope);
         	response = envelope.getResponse();	
         }else{
-    		Log.e("SoapAction", "未初始化");
+    		Log.e("SoapAction", "null transport");
     	}	
     	return response;
     }
-
-	public SoapObject getRpc() {
-		return rpc;
-	}
-
-	public SoapSerializationEnvelope getEnvelope() {
-		return envelope;
-	}
-
-	public HttpTransportSE getTransport() {
-		return transport;
-	}
+    
+    public void setParam(String key,Object value){
+    	rpc.addProperty(key, value);
+    }
 }

@@ -7,6 +7,7 @@ import com.mcy.mobile.injection.InjectVandM;
 import com.mcy.mobile.injection.InjectView;
 import com.mcy.mobile.injection.Select;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,91 +17,116 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.Toast;
+
 /**
  * Base class for fragments
- *
+ * 
  */
 public abstract class BaseFragment extends Fragment {
-	
+
 	protected int viewLayoutID = 0;
 
 	protected static String TAG = "BaseFragment";
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.d(TAG, "onCreate");
 		super.onCreate(savedInstanceState);
 	}
+
 	@Override
 	public void onDestroy() {
 		Log.d(TAG, "onDestory");
 		super.onDestroy();
 	}
+
 	@Override
 	public void onDestroyView() {
 		Log.d(TAG, "onDestoryView");
 		super.onDestroyView();
 	}
+
 	@Override
 	public void onPause() {
 		Log.d(TAG, "onPause");
 		super.onPause();
 	}
+
 	@Override
 	public void onResume() {
 		Log.d(TAG, "onResume");
 		super.onResume();
 	}
+
 	@Override
 	public void onStart() {
 		Log.d(TAG, "onStart");
 		super.onStart();
 	}
+
 	@Override
 	public void onStop() {
 		Log.d(TAG, "onStop");
 		super.onStop();
 	}
+
+	@Override
+	public void onAttach(Activity activity) {
+		Log.d(TAG, "onAttach");
+		super.onAttach(activity);
+	}
+
+	@Override
+	public void onDetach() {
+		Log.d(TAG, "onDetach");
+		super.onDetach();
+	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		Log.d(TAG, "onCreateView");
-		if(viewLayoutID==0)
-		    return super.onCreateView(inflater, container, savedInstanceState);
+		if (viewLayoutID == 0)
+			return super.onCreateView(inflater, container, savedInstanceState);
 		else
-		    return inflateView(inflater, container, viewLayoutID);
+			return inflateView(inflater, container, viewLayoutID);
 	}
+
 	/**
 	 * Inflate view for fragment.
+	 * 
 	 * @param inflater
 	 * @param container
 	 * @param layoutID
 	 * @return
 	 */
-	protected View inflateView(LayoutInflater inflater, ViewGroup container,int layoutID) {
-		if(layoutID==0)
-			return null;
-		else{
-			View rootView = inflater.inflate(layoutID, container, false);
-			//依赖注入
-			injectView(this, rootView);
-			//初始化view
-			initView();
-			return rootView;
-		}
+	protected View inflateView(LayoutInflater inflater, ViewGroup container,
+			int layoutID) {
+
+		View rootView = inflater.inflate(layoutID, container, false);
+		Log.d(TAG, "inject view");
+		injectView(this, rootView);
+		Log.d(TAG, "init view");
+		initView();
+		return rootView;
+
 	}
-    /**
-     * Abstract method which will called after inflating view.
-     */
+
+	/**
+	 * Abstract method which will called after inflating view.
+	 */
 	protected abstract void initView();
+
 	/**
 	 * Use it like avtivity.setContentView() in or before onCreateView().
 	 */
 	protected void setContentView(int layoutId) {
 		viewLayoutID = layoutId;
 	}
+
 	/**
 	 * Inject views in viewroot.
+	 * 
 	 * @param target
 	 * @param root
 	 */
@@ -154,7 +180,7 @@ public abstract class BaseFragment extends Fragment {
 					injectedSource).select(select).noSelect(noSelect));
 		}
 	}
-    
+
 	private static void setListener(Object injectedSource, Field field,
 			String methodName, Method method) throws Exception {
 		if (methodName == null || methodName.trim().length() == 0)
@@ -196,18 +222,18 @@ public abstract class BaseFragment extends Fragment {
 	public enum Method {
 		Click, LongClick, ItemClick, itemLongClick
 	}
-	
+
 	protected void showToast(String msg) {
 		Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public  <T extends View> T $(View v,int id){
-		return (T)v.findViewById(id);
+	public <T extends View> T $(View v, int id) {
+		return (T) v.findViewById(id);
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public  <T extends View> T $(int id){
-		return (T)getView().findViewById(id);
+	public <T extends View> T $(int id) {
+		return (T) getView().findViewById(id);
 	}
 }

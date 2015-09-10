@@ -1,16 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.mcy.mymap.MainActivity$PlaceholderFragment" >
+    android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/section_label"
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_white_coner_0"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtException"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_grid_item"
+            android:gravity="center_horizontal"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:text="缺陷"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/txtMap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_grid_item"
+            android:gravity="center_horizontal"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:text="地图"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/txtPatrol"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_grid_item"
+            android:gravity="center_horizontal"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:text="巡视"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/mapContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar" />
+
+    <FrameLayout
+        android:id="@+id/exceptionContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar" />
+
+    <FrameLayout
+        android:id="@+id/patrolContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar" />
+
+    <com.mcy.mobile.view.floatbutton.AddFloatingActionButton
+        android:id="@+id/btnAddRecord"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomBar"
+        android:layout_alignParentRight="true" />
 
 </RelativeLayout>

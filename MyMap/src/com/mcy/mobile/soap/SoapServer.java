@@ -1,16 +1,20 @@
 package com.mcy.mobile.soap;
 
-public abstract class SoapServer {
+public class SoapServer {
 	
 	
-	protected static String URL;
-	protected static String NAME_SPACE;
+	private static String URL;
+	private static String NAME_SPACE;
 	
 	protected static String default_url = "http://192.168.0.105/HnDist.Phjg.Server/Analyse.asmx";
 	protected static String default_name_space="http://tempuri.org/";
 	
-	public SoapServer(){
-		initServerConfig();
+	public static void setURL(String url){
+		URL = url;
+	}
+	
+	public static void setNamespace(String namespace){
+		NAME_SPACE = namespace;
 	}
 	
 	public static String getURL(){
@@ -25,6 +29,4 @@ public abstract class SoapServer {
 		else
 			return default_name_space;
 	}
-	
-	public abstract void initServerConfig();
 }

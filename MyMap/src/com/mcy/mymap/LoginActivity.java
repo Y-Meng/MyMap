@@ -1,14 +1,22 @@
 package com.mcy.mymap;
 
+import java.io.IOException;
+
+import org.ksoap2.transport.HttpResponseException;
+import org.xmlpull.v1.XmlPullParserException;
+
 import com.mcy.mobile.core.BaseActivity;
 import com.mcy.mobile.core.BaseApplication;
 import com.mcy.mobile.core.Login;
 import com.mcy.mobile.core.User;
 import com.mcy.mobile.injection.InjectVandM;
 import com.mcy.mobile.injection.InjectView;
+import com.mcy.mobile.soap.SoapAction;
 import com.mcy.mobile.soap.SoapServer;
 import com.mcy.mobile.util.PreferenceUtil;
 import com.mcy.mymap.R;
+import com.mcy.mysoap.ActionLogin;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -53,16 +61,7 @@ public class LoginActivity extends BaseActivity implements Login{
 		mContext = this;
 		mSp = getSharedPreferences("userInfo", MODE_PRIVATE);
 		
-		SoapServer mServer = new SoapServer() {
-			
-			@Override
-			public void initServerConfig() {
-				// TODO Auto-generated method stub
-				
-			}
-		};
-		
-		mApp.setSoapServer(mServer);
+        initServerConfig();
 		
 		// 是否存在历史用户信息
 		boolean isRemember = PreferenceUtil.read(mSp, "isRemember", false);
@@ -75,6 +74,13 @@ public class LoginActivity extends BaseActivity implements Login{
 		}
 	}
 
+	/**
+	 * 设置服务器地址
+	 */
+	private void initServerConfig() {
+		SoapServer.setURL("http://182.92.99.34/cjpower/xsrwWebService.asmx");
+	}
+	
 	/**
 	 * 单击事件监听
 	 * 
@@ -126,10 +132,6 @@ public class LoginActivity extends BaseActivity implements Login{
 
 		@Override
 		protected Object doInBackground(String... params) {
-			//TODO cancel test
-			
-			
-			
 			return login(params[0], params[1]);
 		}
 
@@ -142,17 +144,28 @@ public class LoginActivity extends BaseActivity implements Login{
 
 	@Override
 	public Object login(String user, String pwd) {
-		// TODO do login
-		
+		SoapAction action = new ActionLogin(user, pwd);
+		try {
+			return action.call();
+		} catch (HttpResponseException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (XmlPullParserException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
 	public void handleLoginResult(Object result) {
-		// TODO handle login result
-		User user = new User();
-		user.setUR_NAME(strUser);
-		mApp.setUser(user);
-		startActivity(new Intent(this,MainActivity.class));
+		if(result!=null&&result.toString().equals("1")){
+			User user = new User();
+			user.setUR_NAME(strUser);
+			mApp.setUser(user);
+			startActivity(new Intent(this,MainActivity.class));
+		}else{
+			showToast("登陆失败", Toast.LENGTH_SHORT);
+		}
 	}
 }
